@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "copy-move-forgery-unet"
+version = "0.2.0"
+description = "Two-headed U-Net for copy-move forgery detection and localisation, on synthetic images"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Hager Othman", email = "hagersafwat94@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "torch"]
+keywords = ["u-net", "image forensics", "segmentation", "pytorch"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.optional-dependencies]
+demo = ["matplotlib"]
+dev = ["matplotlib", "pytest", "ruff"]
+
+[project.urls]
+Repository = "https://github.com/hager-safwat/copy-move-forgery-unet"
+
+[tool.setuptools]
+packages = ["forgery"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
